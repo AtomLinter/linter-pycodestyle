@@ -1,0 +1,15 @@
+{
+  "name": "linter-pep8",
+  "linter-package": true,
+  "main": "./lib/init",
+  "version": "0.0.1",
+  "description": "Linter plugin for pep8",
+  "activationEvents": ["linter-pep8:toggle"],
+  "repository": "https://github.com/jemerick/linter-pep8",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
