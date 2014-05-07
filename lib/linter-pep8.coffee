@@ -47,6 +47,4 @@ class LinterPep8 extends Linter
 
     @cmd = cmd
 
-    console.log @cmd
-
 module.exports = LinterPep8
