@@ -47,4 +47,8 @@ class LinterPep8 extends Linter
 
     @cmd = cmd
 
+  formatMessage: (match) ->
+    code = match.error ? match.warning
+    "#{code} #{match.message}"
+
 module.exports = LinterPep8
