@@ -18,7 +18,8 @@ class LinterPep8 extends Linter
   # regex: "models.py:18:80: E501 line too long (250 > 79 characters)"
   regex: ':(?<line>\\d+):(?<col>\\d+): ((?<error>E\\d+)|(?<warning>W\\d+)) (?<message>.*?)\n'
 
-  constructor: (editorView)->
+  constructor: (editor)->
+    super(editor)
     @executablePath = atom.config.get 'linter-pep8.pep8ExecutablePath'
 
     atom.config.observe 'linter-pep8.maxLineLength', =>
