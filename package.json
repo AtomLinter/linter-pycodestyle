@@ -4,7 +4,6 @@
   "main": "./lib/init",
   "version": "0.0.2",
   "description": "Linter plugin for pep8",
-  "activationEvents": ["linter-pep8:toggle"],
   "repository": "https://github.com/jemerick/linter-pep8",
   "license": "MIT",
   "engines": {
