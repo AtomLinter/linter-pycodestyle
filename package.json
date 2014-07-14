@@ -4,7 +4,7 @@
   "main": "./lib/init",
   "version": "0.0.2",
   "description": "Linter plugin for pep8",
-  "repository": "https://github.com/jemerick/linter-pep8",
+  "repository": "https://github.com/AtomLinter/linter-pep8",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
