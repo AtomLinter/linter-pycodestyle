@@ -2,13 +2,12 @@
   "name": "linter-pep8",
   "linter-package": true,
   "main": "./lib/init",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Linter plugin for pep8",
   "repository": "https://github.com/AtomLinter/linter-pep8",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
