@@ -16,7 +16,7 @@ class LinterPep8 extends Linter
 
   # A regex pattern used to extract information from the executable's output.
   # regex: "models.py:18:80: E501 line too long (250 > 79 characters)"
-  regex: ':(?<line>\\d+):(?<col>\\d+): ((?<error>E\\d+)|(?<warning>W\\d+)) (?<message>.*?)\n'
+  regex: ':(?<line>\\d+):(?<col>\\d+): ((?<error>E\\d+)|(?<warning>W\\d+)) (?<message>.*)'
 
   constructor: (editor)->
     super(editor)
