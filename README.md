@@ -22,13 +22,10 @@ $ apm install linter-pep8
 ```
 
 ## Settings
-You can configure linter-pep8 by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):
-```
-'linter-pep8':
-  'pep8ExecutablePath': null #pep8 path. run 'which pep8' to find the path to folder, no trailing slash
-  'maxLineLength': 79 # the max line length for your python code, defaults to 79
-  'ignoreErrorCodes': [] # a list of pep8 error codes to ignore. http://pep8.readthedocs.org/en/latest/intro.html#error-codes
-```
+You can configure linter-pep8 from the settings menu:
+* **pep8ExecutablePath** Path to your pep8 executable. This is useful if you have different versions of pylint for Python 2 and 3 or if you are using a virtualenv
+* **maxLineLength** The max line length for your python code, defaults to 79
+* **ignoreErrorCodes** A list of pep8 error codes to ignore. For a list of code visit http://pep8.readthedocs.org/en/latest/intro.html#error-codes
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:

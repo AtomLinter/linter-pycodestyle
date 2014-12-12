@@ -9,6 +9,7 @@ module.exports =
     ignoreErrorCodes:
       type: 'array'
       default: []
+      description: 'For a list of code visit http://pep8.readthedocs.org/en/latest/intro.html#error-codes'
 
   activate: ->
     console.log 'activate linter-pep8'
