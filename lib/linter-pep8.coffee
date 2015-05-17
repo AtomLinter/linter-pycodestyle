@@ -16,18 +16,18 @@ class LinterPep8 extends Linter
 
   constructor: (editor)->
     super(editor)
-    atom.config.observe 'linter-pep8.pep8ExecutablePath', => @updateCommand()
+    @pep8ExecutablePath = atom.config.observe 'linter-pep8.pep8ExecutablePath', => @updateCommand()
 
-    atom.config.observe 'linter-pep8.maxLineLength', =>
+    @maxLineLength = atom.config.observe 'linter-pep8.maxLineLength', =>
       @updateCommand()
 
-    atom.config.observe 'linter-pep8.ignoreErrorCodes', =>
+    @ignoreErrorCodes = atom.config.observe 'linter-pep8.ignoreErrorCodes', =>
       @updateCommand()
 
   destroy: ->
-    atom.config.unobserve 'linter-pep8.pep8ExecutablePath'
-    atom.config.unobserve 'linter-pep8.maxLineLength'
-    atom.config.unobserve 'linter-pep8.ignoreErrorCodes'
+    @pep8ExecutablePath.dispose()
+    @maxLineLength.dispose()
+    @ignoreErrorCodes.dispose()
 
   updateCommand: ->
     cmd = [atom.config.get 'linter-pep8.pep8ExecutablePath']
