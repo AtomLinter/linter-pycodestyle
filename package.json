@@ -9,7 +9,7 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "atom-linter": "latest"
+    "atom-linter": "^1.0.0"
   },
   "providedServices": {
     "linter": {
