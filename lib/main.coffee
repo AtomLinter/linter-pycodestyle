@@ -20,6 +20,11 @@ module.exports =
       scope: 'file' # or 'project'
       lintOnFly: false # must be false for scope: 'project'
       lint: (textEditor)->
-        return new Promise (resolve, reject)->
-          message = {type: 'Error', text: 'Something went wrong', range:[[0,0], [0,1]]}
-          resolve([message])
+        parameters = []
+        if maxLineLength = atom.config.get('linter-pep8.maxLineLength')
+          parameters.push("--max-line-length=#{maxLineLength}")
+        if ignoreCodes = atom.config.get('linter-pep8.ignoreErrorCodes')
+          parameters.push("--ignore=#{ignoreCodes.join(',')}")
+        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters).then (result) ->
+          console.log(result)
+          return []
