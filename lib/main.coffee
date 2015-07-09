@@ -18,7 +18,7 @@ module.exports =
     provider =
       grammarScopes: ['source.python']
       scope: 'file' # or 'project'
-      lintOnFly: false # must be false for scope: 'project'
+      lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor)->
         parameters = []
         if maxLineLength = atom.config.get('linter-pep8.maxLineLength')
