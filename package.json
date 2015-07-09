@@ -1,7 +1,6 @@
 {
   "name": "linter-pep8",
-  "linter-package": true,
-  "main": "./lib/init",
+  "main": "./lib/main",
   "version": "0.2.0",
   "description": "Linter plugin for pep8",
   "repository": "https://github.com/AtomLinter/linter-pep8",
@@ -9,5 +8,14 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "atom-linter": "^1.0.0"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  }
 }
