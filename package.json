@@ -7,5 +7,12 @@
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
   }
 }
