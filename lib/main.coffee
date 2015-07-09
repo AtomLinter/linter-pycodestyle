@@ -14,6 +14,7 @@ module.exports =
   activate: ->
 
   provideLinter: ->
+    helpers = require('atom-linter')
     provider =
       grammarScopes: ['source.python']
       scope: 'file' # or 'project'

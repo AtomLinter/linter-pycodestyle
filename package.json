@@ -8,6 +8,9 @@
   "engines": {
     "atom": ">0.50.0"
   },
+  "dependencies": {
+    "atom-linter": "latest"
+  },
   "providedServices": {
     "linter": {
       "versions": {
