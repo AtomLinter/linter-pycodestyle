@@ -5,7 +5,7 @@ module.exports =
       default: 'pep8'
     maxLineLength:
       type: 'integer'
-      default: 79
+      default: 0
     ignoreErrorCodes:
       type: 'array'
       default: []
