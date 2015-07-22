@@ -10,6 +10,9 @@ module.exports =
       type: 'array'
       default: []
       description: 'For a list of code visit http://pep8.readthedocs.org/en/latest/intro.html#error-codes'
+    convertAllErrorsToWarnings:
+      type: 'boolean'
+      default: false
 
   activate: ->
 
@@ -34,7 +37,7 @@ module.exports =
             line = parseInt(match[1]) or 0
             col = parseInt(match[2]) or 0
             toReturn.push({
-              type: "Error"
+              type: if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
               text: match[3]
               filePath
               range: [[line - 1, col - 1], [line - 1, col]]
