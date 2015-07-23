@@ -12,7 +12,7 @@ module.exports =
       description: 'For a list of code visit http://pep8.readthedocs.org/en/latest/intro.html#error-codes'
     convertAllErrorsToWarnings:
       type: 'boolean'
-      default: false
+      default: true
 
   activate: ->
 
