@@ -13,8 +13,15 @@ module.exports =
     convertAllErrorsToWarnings:
       type: 'boolean'
       default: true
+    enableFixPath:
+      type: 'boolean'
+      title: 'Enable fix-path'
+      description: 'Fix the `$PATH` on OS X when Atom is run from a GUI app.'
+      default: process.platform is 'darwin'
 
   activate: ->
+    # can not reverse fix-path once loaded
+    require('fix-path')() if atom.config.get('linter-pep8.enableFixPath')
 
   provideLinter: ->
     helpers = require('atom-linter')
