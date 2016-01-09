@@ -1,7 +1,7 @@
 {
   "name": "linter-pep8",
   "main": "./lib/main",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Linter plugin for pep8",
   "repository": "https://github.com/AtomLinter/linter-pep8",
   "license": "MIT",
