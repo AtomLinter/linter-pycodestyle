@@ -15,6 +15,7 @@ module.exports =
       default: true
 
   activate: ->
+    require('atom-package-deps').install()
 
   provideLinter: ->
     helpers = require('atom-linter')
