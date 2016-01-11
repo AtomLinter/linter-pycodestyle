@@ -25,6 +25,7 @@
   "keywords": [
     "atom",
     "python",
-    "linter"
+    "linter",
+    "pep8"
   ]
 }
