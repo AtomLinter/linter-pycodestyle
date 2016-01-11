@@ -1,7 +1,14 @@
 # Change Log
 
-## [1.2.0](https://github.com/AtomLinter/linter-pep8/tree/1.2.0) (2016-01-08)
-[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.1.0...1.2.0)
+## [1.2.1](https://github.com/AtomLinter/linter-pep8/tree/1.2.1) (2016-01-11)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.2.0...1.2.1)
+
+**Implemented enhancements:**
+
+- Added keywords to package.json to be searchable on atom.io/packages/ [\#39](https://github.com/AtomLinter/linter-pep8/pull/39) ([viatsko](https://github.com/viatsko))
+
+## [v1.2.0](https://github.com/AtomLinter/linter-pep8/tree/v1.2.0) (2016-01-09)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.1.0...v1.2.0)
 
 **Implemented enhancements:**
 
