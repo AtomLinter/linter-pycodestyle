@@ -21,5 +21,11 @@
         "1.0.0": "provideLinter"
       }
     }
-  }
+  },
+  "keywords": [
+    "atom",
+    "python",
+    "linter",
+    "pep8"
+  ]
 }
