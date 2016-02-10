@@ -1,3 +1,5 @@
+helpers = null
+
 module.exports =
   config:
     pep8ExecutablePath:
@@ -15,16 +17,16 @@ module.exports =
       default: true
 
   activate: ->
-    require('atom-package-deps').install()
+    require('atom-package-deps').install('linter-pep8')
 
   provideLinter: ->
-    helpers = require('atom-linter')
     provider =
       name: 'pep8'
       grammarScopes: ['source.python']
       scope: 'file' # or 'project'
       lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor)->
+        helpers ?= require('atom-linter')
         filePath = textEditor.getPath()
         parameters = []
         if maxLineLength = atom.config.get('linter-pep8.maxLineLength')
