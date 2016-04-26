@@ -1,7 +1,26 @@
 # Change Log
 
-## [1.2.1](https://github.com/AtomLinter/linter-pep8/tree/1.2.1) (2016-01-11)
-[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.2.0...1.2.1)
+## [v1.3.0](https://github.com/AtomLinter/linter-pep8/tree/v1.3.0) (2016-04-26)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.2.1...v1.3.0)
+
+**Implemented enhancements:**
+
+- Add 'source.python.django' grammar [\#65](https://github.com/AtomLinter/linter-pep8/pull/65) ([liljaylj](https://github.com/liljaylj))
+- atom-linter@4.6.1 untested ⚠️ [\#58](https://github.com/AtomLinter/linter-pep8/pull/58) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-package-deps to version 4.0.1 🚀 [\#53](https://github.com/AtomLinter/linter-pep8/pull/53) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.5.0 untested ⚠️ [\#50](https://github.com/AtomLinter/linter-pep8/pull/50) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- improve startup time [\#48](https://github.com/AtomLinter/linter-pep8/pull/48) ([dirk-thomas](https://github.com/dirk-thomas))
+- atom-package-deps@3.0.8 untested ⚠️ [\#46](https://github.com/AtomLinter/linter-pep8/pull/46) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.4.0 untested ⚠️ [\#45](https://github.com/AtomLinter/linter-pep8/pull/45) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.3.4 untested ⚠️ [\#44](https://github.com/AtomLinter/linter-pep8/pull/44) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Closed issues:**
+
+- Add support for "source.python.django" grammar [\#64](https://github.com/AtomLinter/linter-pep8/issues/64)
+- Error: Cannot find module 'shell-path' [\#56](https://github.com/AtomLinter/linter-pep8/issues/56)
+
+## [v1.2.1](https://github.com/AtomLinter/linter-pep8/tree/v1.2.1) (2016-01-11)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.2.0...v1.2.1)
 
 **Implemented enhancements:**
 
@@ -17,9 +36,6 @@
 - Force EOL to be LF [\#37](https://github.com/AtomLinter/linter-pep8/pull/37) ([Arcanemagus](https://github.com/Arcanemagus))
 - Added package-deps to package.json [\#36](https://github.com/AtomLinter/linter-pep8/pull/36) ([viatsko](https://github.com/viatsko))
 - Provide linter name so it won't be "Unnamed linter" in editor [\#35](https://github.com/AtomLinter/linter-pep8/pull/35) ([viatsko](https://github.com/viatsko))
-
-**Merged pull requests:**
-
 - atom-linter@4.3.1 untested ⚠️ [\#34](https://github.com/AtomLinter/linter-pep8/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - atom-linter@4.3.0 untested ⚠️ [\#33](https://github.com/AtomLinter/linter-pep8/pull/33) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
@@ -29,12 +45,9 @@
 **Implemented enhancements:**
 
 - Document config examples [\#25](https://github.com/AtomLinter/linter-pep8/issues/25)
-- add option to convert errors to warnings [\#23](https://github.com/AtomLinter/linter-pep8/pull/23) ([eteq](https://github.com/eteq))
-
-**Merged pull requests:**
-
 - atom-linter@4.2.0 untested ⚠️ [\#31](https://github.com/AtomLinter/linter-pep8/pull/31) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - Update atom-linter to version 4.1.1 🚀 [\#29](https://github.com/AtomLinter/linter-pep8/pull/29) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- add option to convert errors to warnings [\#23](https://github.com/AtomLinter/linter-pep8/pull/23) ([eteq](https://github.com/eteq))
 
 ## [v1.0.1](https://github.com/AtomLinter/linter-pep8/tree/v1.0.1) (2015-07-19)
 [Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.0.0...v1.0.1)
