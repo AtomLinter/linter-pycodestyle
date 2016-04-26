@@ -22,7 +22,7 @@ module.exports =
   provideLinter: ->
     provider =
       name: 'pep8'
-      grammarScopes: ['source.python']
+      grammarScopes: ['source.python', 'source.python.django']
       scope: 'file' # or 'project'
       lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor)->
