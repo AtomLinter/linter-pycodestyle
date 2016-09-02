@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.3.1](https://github.com/AtomLinter/linter-pep8/tree/v1.3.1) (2016-09-02)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.3.0...v1.3.1)
+
+**Implemented enhancements:**
+
+- Update atom-linter to version 8.0.0 🚀 [\#79](https://github.com/AtomLinter/linter-pep8/pull/79) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-linter to version 6.0.0 🚀 [\#71](https://github.com/AtomLinter/linter-pep8/pull/71) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Closed issues:**
+
+- How to ignore a warning if I really need to. [\#77](https://github.com/AtomLinter/linter-pep8/issues/77)
+
 ## [v1.3.0](https://github.com/AtomLinter/linter-pep8/tree/v1.3.0) (2016-04-26)
 [Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.2.1...v1.3.0)
 
