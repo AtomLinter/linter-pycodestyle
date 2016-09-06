@@ -1,5 +1,19 @@
 # Change Log
 
+## [v1.3.2](https://github.com/AtomLinter/linter-pep8/tree/v1.3.2) (2016-09-06)
+[Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.3.1...v1.3.2)
+
+**Fixed bugs:**
+
+- Ignored non-zero exit codes from pep8 because they are non-fatal by design [\#86](https://github.com/AtomLinter/linter-pep8/pull/86) ([pnb](https://github.com/pnb))
+
+**Closed issues:**
+
+- Error while saving and typing [\#85](https://github.com/AtomLinter/linter-pep8/issues/85)
+- Error when typing any character [\#84](https://github.com/AtomLinter/linter-pep8/issues/84)
+- When you save python files, i see Error: Process exited with non-zero code: 1 [\#83](https://github.com/AtomLinter/linter-pep8/issues/83)
+- Exited with non-zero code [\#82](https://github.com/AtomLinter/linter-pep8/issues/82)
+
 ## [v1.3.1](https://github.com/AtomLinter/linter-pep8/tree/v1.3.1) (2016-09-02)
 [Full Changelog](https://github.com/AtomLinter/linter-pep8/compare/v1.3.0...v1.3.1)
 
