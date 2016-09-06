@@ -35,7 +35,7 @@ module.exports =
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
         msgtype = if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters, {stdin: textEditor.getText()}).then (result) ->
+        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
           toReturn = []
           regex = /stdin:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null
