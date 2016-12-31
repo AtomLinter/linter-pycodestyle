@@ -33,11 +33,11 @@ module.exports =
           parameters.push("--max-line-length=#{maxLineLength}")
         if ignoreCodes = atom.config.get('linter-pep8.ignoreErrorCodes')
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
-        parameters.push('-')
+        parameters.push(filePath)
         msgtype = if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
+        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters, {ignoreExitCode: true}).then (result) ->
           toReturn = []
-          regex = /stdin:(\d+):(\d+):(.*)/g
+          regex = /[^:]+:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null
             line = parseInt(match[1]) or 0
             col = parseInt(match[2]) or 0
