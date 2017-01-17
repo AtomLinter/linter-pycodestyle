@@ -2,7 +2,7 @@
   "name": "linter-pep8",
   "main": "./lib/main",
   "version": "1.3.2",
-  "description": "Linter plugin for pep8",
+  "description": "Linter plugin for pycodestyle",
   "repository": "https://github.com/AtomLinter/linter-pep8",
   "license": "MIT",
   "engines": {
@@ -26,6 +26,7 @@
     "atom",
     "python",
     "linter",
-    "pep8"
+    "pep8",
+    "pycodestyle"
   ]
 }
