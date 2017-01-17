@@ -2,16 +2,16 @@ helpers = null
 
 module.exports =
   config:
-    pep8ExecutablePath:
+    pycodestyleExecutablePath:
       type: 'string'
-      default: 'pep8'
+      default: 'pycodestyle'
     maxLineLength:
       type: 'integer'
       default: 0
     ignoreErrorCodes:
       type: 'array'
       default: []
-      description: 'For a list of code visit http://pep8.readthedocs.org/en/latest/intro.html#error-codes'
+      description: 'For a list of code visit http://pycodestyle.readthedocs.org/en/latest/intro.html#error-codes'
     convertAllErrorsToWarnings:
       type: 'boolean'
       default: true
@@ -21,7 +21,7 @@ module.exports =
 
   provideLinter: ->
     provider =
-      name: 'pep8'
+      name: 'pycodestyle'
       grammarScopes: ['source.python', 'source.python.django']
       scope: 'file' # or 'project'
       lintOnFly: true # must be false for scope: 'project'
@@ -35,7 +35,7 @@ module.exports =
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
         msgtype = if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pep8.pep8ExecutablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
+        return helpers.exec(atom.config.get('linter-pep8.pycodestyleExecutablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
           toReturn = []
           regex = /stdin:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null
