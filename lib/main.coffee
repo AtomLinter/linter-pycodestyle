@@ -2,7 +2,7 @@ helpers = null
 
 module.exports =
   config:
-    pycodestyleExecutablePath:
+    executablePath:
       type: 'string'
       default: 'pycodestyle'
     maxLineLength:
@@ -35,7 +35,7 @@ module.exports =
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
         msgtype = if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pep8.pycodestyleExecutablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
+        return helpers.exec(atom.config.get('linter-pep8.executablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
           toReturn = []
           regex = /stdin:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null

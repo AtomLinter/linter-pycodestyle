@@ -33,7 +33,7 @@ Now you can proceed to install the linter-pep8 plugin.
 
 You can configure linter-pep8 from the settings menu:
 
-*   **pycodestyleExecutablePath** Path to your pycodestyle executable. This is useful if you
+*   **executablePath** Path to your pycodestyle executable. This is useful if you
     have different versions of pylint for Python 2 and 3 or if you are using a
     virtualenv
 
