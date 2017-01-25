@@ -1,4 +1,4 @@
-# linter-pep8
+# linter-pycodestyle
 
 This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides
 an interface to [pycodestyle](https://pypi.python.org/pypi/pycodestyle). It will be used
@@ -21,17 +21,17 @@ terminal:
 pip install pycodestyle
 ```
 
-Now you can proceed to install the linter-pep8 plugin.
+Now you can proceed to install the linter-pycodestyle plugin.
 
 ### Plugin installation
 
 ```ShellSession
- apm install linter-pep8
+ apm install linter-pycodestyle
 ```
 
 ## Settings
 
-You can configure linter-pep8 from the settings menu:
+You can configure linter-pycodestyle from the settings menu:
 
 *   **executablePath** Path to your pycodestyle executable. This is useful if you
     have different versions of pylint for Python 2 and 3 or if you are using a

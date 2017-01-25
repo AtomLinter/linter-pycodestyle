@@ -17,7 +17,7 @@ module.exports =
       default: true
 
   activate: ->
-    require('atom-package-deps').install('linter-pep8')
+    require('atom-package-deps').install('linter-pycodestyle')
 
   provideLinter: ->
     provider =
@@ -29,13 +29,13 @@ module.exports =
         helpers ?= require('atom-linter')
         filePath = textEditor.getPath()
         parameters = []
-        if maxLineLength = atom.config.get('linter-pep8.maxLineLength')
+        if maxLineLength = atom.config.get('linter-pycodestyle.maxLineLength')
           parameters.push("--max-line-length=#{maxLineLength}")
-        if ignoreCodes = atom.config.get('linter-pep8.ignoreErrorCodes')
+        if ignoreCodes = atom.config.get('linter-pycodestyle.ignoreErrorCodes')
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
-        msgtype = if atom.config.get('linter-pep8.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pep8.executablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
+        msgtype = if atom.config.get('linter-pycodestyle.convertAllErrorsToWarnings') then 'Warning' else 'Error'
+        return helpers.exec(atom.config.get('linter-pycodestyle.executablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
           toReturn = []
           regex = /stdin:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null
