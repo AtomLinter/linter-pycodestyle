@@ -1,5 +1,13 @@
 helpers = null
 
+# This function is from: https://atom.io/packages/linter-pylint
+getProjectDir = (filePath) ->
+  atomProject = atom.project.relativizePath(filePath)[0]
+  if atomProject == null
+    # Default project dirextory to file directory if path cannot be determined
+    return dirname(filePath)
+  return atomProject
+
 module.exports =
   config:
     executablePath:
@@ -35,7 +43,7 @@ module.exports =
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
         msgtype = if atom.config.get('linter-pycodestyle.convertAllErrorsToWarnings') then 'Warning' else 'Error'
-        return helpers.exec(atom.config.get('linter-pycodestyle.executablePath'), parameters, {stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
+        return helpers.exec(atom.config.get('linter-pycodestyle.executablePath'), parameters, {cwd: getProjectDir(filePath), env: process.env, stdin: textEditor.getText(), ignoreExitCode: true}).then (result) ->
           toReturn = []
           regex = /stdin:(\d+):(\d+):(.*)/g
           while (match = regex.exec(result)) isnt null
