@@ -1,5 +1,25 @@
 # Change Log
 
+## [v2.0.2](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.0.2) (2017-03-21)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.0.1...v2.0.2)
+
+**Fixed bugs:**
+
+- ReferenceError After updating to 2.0.1 \(PEP8 rename to pycodestyle\) [\#115](https://github.com/AtomLinter/linter-pycodestyle/issues/115)
+- Has error under pyenv virtualenv [\#89](https://github.com/AtomLinter/linter-pycodestyle/issues/89)
+- Define dirname [\#116](https://github.com/AtomLinter/linter-pycodestyle/pull/116) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v2.0.1](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.0.1) (2017-03-18)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.0.0...v2.0.1)
+
+**Fixed bugs:**
+
+- need to rename package to reflect underlying linter: pep8 --\> pycodestyle [\#55](https://github.com/AtomLinter/linter-pycodestyle/issues/55)
+- Fixing issue with pyenv complaining about missing pycodestyle [\#107](https://github.com/AtomLinter/linter-pycodestyle/pull/107) ([srolija](https://github.com/srolija))
+
+## [v2.0.0](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.0.0) (2017-01-25)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v1.3.3...v2.0.0)
+
 ## [v1.3.3](https://github.com/AtomLinter/linter-pycodestyle/tree/v1.3.3) (2017-01-25)
 [Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v1.3.2...v1.3.3)
 
