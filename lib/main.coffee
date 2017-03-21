@@ -1,11 +1,13 @@
 helpers = null
+path = null
 
 # This function is from: https://atom.io/packages/linter-pylint
 getProjectDir = (filePath) ->
+  path ?= require('path')
   atomProject = atom.project.relativizePath(filePath)[0]
   if atomProject == null
     # Default project dirextory to file directory if path cannot be determined
-    return dirname(filePath)
+    return path.dirname(filePath)
   return atomProject
 
 module.exports =
