@@ -34,7 +34,7 @@ Now you can proceed to install the linter-pycodestyle plugin.
 You can configure linter-pycodestyle from the settings menu:
 
 *   **executablePath** Path to your pycodestyle executable. This is useful if you
-    have different versions of pylint for Python 2 and 3 or if you are using a
+    have different versions of pycodestyle for Python 2 and 3 or if you are using a
     virtualenv
 
 *   **maxLineLength** The max line length for your python code, defaults to 79
