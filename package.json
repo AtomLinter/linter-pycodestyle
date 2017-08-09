@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.7.0 <2.0.0"
   },
   "dependencies": {
     "atom-linter": "^8.0.0",
