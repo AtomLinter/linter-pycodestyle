@@ -5,12 +5,20 @@
   "description": "Linter plugin for pycodestyle",
   "repository": "https://github.com/AtomLinter/linter-pycodestyle",
   "license": "MIT",
+  "scripts": {
+    "test": "apm test",
+    "lint": "coffeelint ."
+  },
   "engines": {
     "atom": ">0.50.0"
   },
   "dependencies": {
     "atom-linter": "^8.0.0",
     "atom-package-deps": "^4.0.1"
+  },
+  "devDependencies": {
+    "jasmine-fix": "^1.0.1",
+    "coffeelint": "^1.9.7"
   },
   "package-deps": [
     "linter"
