@@ -51,4 +51,78 @@ describe('The pycodestyle provider for Linter', () => {
     const messages = await lint(editor);
     expect(messages.length).toBe(0);
   });
+
+  describe('executable path', () => {
+    const helpers = require('atom-linter');
+
+    let editor = null;
+
+    beforeEach(async () => {
+      atom.project.addPath(fixturePath);
+
+      spyOn(helpers, 'exec');
+
+      editor = await atom.workspace.open(badPath);
+    });
+
+    it('finds executable relative to project', async () => {
+      atom.config.set('linter-pycodestyle.executablePath', join('$PROJECT', 'pycodestyle'));
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(join(fixturePath, 'pycodestyle'));
+    });
+
+    it('finds executable relative to projects', async () => {
+      const paths = [
+        join('$project', 'null'),
+        join('$pRoJeCt', 'pycodestyle1'),
+        join('$PrOjEcT', 'pycodestyle2'),
+        join('$PROJECT', 'pycodestyle'),
+      ].join(';');
+      atom.config.set('linter-pycodestyle.executablePath', paths);
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(join(fixturePath, 'pycodestyle'));
+    });
+
+    it('finds executable using project name', async () => {
+      atom.config.set('linter-pycodestyle.executablePath', join('$PROJECT_NAME', 'pycodestyle'));
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(join('fixtures', 'pycodestyle'));
+    });
+
+    it('finds executable using project names', async () => {
+      const paths = [
+        join('$project_name', 'null'),
+        join('$pRoJeCt_NaMe', 'flake1'),
+        join('$PrOjEcT_nAmE', 'flake2'),
+        join('$PROJECT_NAME', 'pycodestyle'),
+      ].join(';');
+      const correct = [
+        join('fixtures', 'null'),
+        join('fixtures', 'flake1'),
+        join('fixtures', 'flake2'),
+        join('fixtures', 'pycodestyle'),
+      ].join(';');
+      atom.config.set('linter-pycodestyle.executablePath', paths);
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(correct);
+    });
+
+    it('normalizes executable path', async () => {
+      atom.config.set('linter-pycodestyle.executablePath',
+        join(fixturePath, '..', 'fixtures', 'pycodestyle'),
+      );
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(join(fixturePath, 'pycodestyle'));
+    });
+
+    it('finds backup executable', async () => {
+      const pycodestyleNotFound = join('$PROJECT', 'pycodestyle_notfound');
+      const pycodestyleBackup = join(fixturePath, 'pycodestyle_backup');
+      atom.config.set('linter-pycodestyle.executablePath',
+        `${pycodestyleNotFound};${pycodestyleBackup}`,
+      );
+      await lint(editor);
+      expect(helpers.exec.mostRecentCall.args[0]).toBe(join(fixturePath, 'pycodestyle_backup'));
+    });
+  });
 });

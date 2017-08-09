@@ -8,7 +8,8 @@
   "configSchema": {
     "executablePath": {
       "type": "string",
-      "default": "pycodestyle"
+      "default": "pycodestyle",
+      "description": "Semicolon separated list of paths to a binary (e.g. `/usr/local/bin/pycodestyle`). Use `$PROJECT` or `$PROJECT_NAME` substitutions for project specific paths e.g. `$PROJECT/.venv/bin/pycodestyle;/usr/bin/pycodestyle`"
     },
     "maxLineLength": {
       "type": "integer",
@@ -34,7 +35,8 @@
   },
   "dependencies": {
     "atom-linter": "^10.0.0",
-    "atom-package-deps": "^4.6.0"
+    "atom-package-deps": "^4.6.0",
+    "fs-plus": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
