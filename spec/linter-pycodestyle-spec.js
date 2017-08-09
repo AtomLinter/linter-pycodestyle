@@ -10,7 +10,7 @@ const badPath = join(fixturePath, 'bad.py');
 const emptyPath = join(fixturePath, 'empty.py');
 
 describe('The pycodestyle provider for Linter', () => {
-  const lint = require('../lib/main.coffee').provideLinter().lint;
+  const lint = require('../lib/').provideLinter().lint;
 
   beforeEach(async () => {
     // Info about this beforeEach() implementation:
