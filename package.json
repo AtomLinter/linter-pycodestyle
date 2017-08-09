@@ -24,6 +24,11 @@
     "convertAllErrorsToWarnings": {
       "type": "boolean",
       "default": true
+    },
+    "forcedConfig": {
+      "type": "string",
+      "default": "",
+      "description": "Forces `pycodestyle` to use this configuration at all times. Supports substituion of `$PROJECT` and `$PROJECT_NAME`."
     }
   },
   "scripts": {
