@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "apm test",
-    "lint": "coffeelint ."
+    "lint": "eslint ."
   },
   "engines": {
     "atom": ">0.50.0"
@@ -17,8 +17,10 @@
     "atom-package-deps": "^4.0.1"
   },
   "devDependencies": {
-    "jasmine-fix": "^1.0.1",
-    "coffeelint": "^1.9.7"
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "jasmine-fix": "^1.0.1"
   },
   "package-deps": [
     "linter"
@@ -36,5 +38,26 @@
     "linter",
     "pep8",
     "pycodestyle"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  }
 }
