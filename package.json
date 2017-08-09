@@ -5,6 +5,26 @@
   "description": "Linter plugin for pycodestyle",
   "repository": "https://github.com/AtomLinter/linter-pycodestyle",
   "license": "MIT",
+  "configSchema": {
+    "executablePath": {
+      "type": "string",
+      "default": "pycodestyle"
+    },
+    "maxLineLength": {
+      "type": "integer",
+      "default": 0
+    },
+    "ignoreErrorCodes": {
+      "title": "Ignored Error Codes",
+      "type": "array",
+      "default": [],
+      "description": "For a list of code visit http://pycodestyle.readthedocs.org/en/latest/intro.html#error-codes"
+    },
+    "convertAllErrorsToWarnings": {
+      "type": "boolean",
+      "default": true
+    }
+  },
   "scripts": {
     "test": "apm test",
     "lint": "eslint ."
