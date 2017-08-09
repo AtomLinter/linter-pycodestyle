@@ -38,11 +38,10 @@ describe('The pycodestyle provider for Linter', () => {
 
     it('verifies that message', async () => {
       const messages = await lint(editor);
-      expect(messages[0].type).toBe('Warning');
-      expect(messages[0].html).not.toBeDefined();
-      expect(messages[0].text).toBe('E401 multiple imports on one line');
-      expect(messages[0].filePath).toBe(badPath);
-      expect(messages[0].range).toEqual([[0, 9], [0, 15]]);
+      expect(messages[0].severity).toBe('warning');
+      expect(messages[0].excerpt).toBe('E401 multiple imports on one line');
+      expect(messages[0].location.file).toBe(badPath);
+      expect(messages[0].location.position).toEqual([[0, 9], [0, 15]]);
     });
   });
 
