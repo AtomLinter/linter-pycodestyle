@@ -7,7 +7,6 @@ import { it, fit, wait, beforeEach, afterEach } from 'jasmine-fix';
 const fixturePath = join(__dirname, 'fixtures');
 const goodPath = join(fixturePath, 'good.py');
 const badPath = join(fixturePath, 'bad.py');
-const emptyPath = join(fixturePath, 'empty.py');
 
 describe('The pycodestyle provider for Linter', () => {
   const lint = require('../lib/').provideLinter().lint;
@@ -52,5 +51,4 @@ describe('The pycodestyle provider for Linter', () => {
     const messages = await lint(editor);
     expect(messages.length).toBe(0);
   });
-
 });
