@@ -41,6 +41,8 @@ module.exports =
         parameters = []
         if maxLineLength = atom.config.get('linter-pycodestyle.maxLineLength')
           parameters.push("--max-line-length=#{maxLineLength}")
+        else if maxLineLength = atom.config.get('editor.preferredLineLength')
+          parameters.push("--max-line-length=#{maxLineLength}")
         if ignoreCodes = atom.config.get('linter-pycodestyle.ignoreErrorCodes')
           parameters.push("--ignore=#{ignoreCodes.join(',')}")
         parameters.push('-')
