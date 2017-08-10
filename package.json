@@ -1,32 +1,61 @@
 {
   "name": "linter-pycodestyle",
-  "main": "./lib/main",
+  "main": "./lib/index",
   "version": "2.0.2",
   "description": "Linter plugin for pycodestyle",
   "repository": "https://github.com/AtomLinter/linter-pycodestyle",
   "license": "MIT",
+  "configSchema": {
+    "executablePath": {
+      "type": "string",
+      "default": "pycodestyle",
+      "description": "Semicolon separated list of paths to a binary (e.g. `/usr/local/bin/pycodestyle`). Use `$PROJECT` or `$PROJECT_NAME` substitutions for project specific paths e.g. `$PROJECT/.venv/bin/pycodestyle;/usr/bin/pycodestyle`"
+    },
+    "maxLineLength": {
+      "type": "integer",
+      "default": 0
+    },
+    "ignoreErrorCodes": {
+      "title": "Ignored Error Codes",
+      "type": "array",
+      "default": [],
+      "description": "For a list of code visit http://pycodestyle.readthedocs.org/en/latest/intro.html#error-codes"
+    },
+    "convertAllErrorsToWarnings": {
+      "type": "boolean",
+      "default": true
+    },
+    "forcedConfig": {
+      "type": "string",
+      "default": "",
+      "description": "Forces `pycodestyle` to use this configuration at all times. Supports substituion of `$PROJECT` and `$PROJECT_NAME`."
+    }
+  },
   "scripts": {
     "test": "apm test",
-    "lint": "coffeelint ."
+    "lint": "eslint ."
   },
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.7.0 <2.0.0"
   },
   "dependencies": {
-    "atom-linter": "^8.0.0",
-    "atom-package-deps": "^4.0.1"
+    "atom-linter": "^10.0.0",
+    "atom-package-deps": "^4.6.0",
+    "fs-plus": "^3.0.1"
   },
   "devDependencies": {
-    "jasmine-fix": "^1.0.1",
-    "coffeelint": "^1.9.7"
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "jasmine-fix": "^1.0.1"
   },
   "package-deps": [
-    "linter"
+    "linter:2.0.0"
   ],
   "providedServices": {
     "linter": {
       "versions": {
-        "1.0.0": "provideLinter"
+        "2.0.0": "provideLinter"
       }
     }
   },
@@ -36,5 +65,26 @@
     "linter",
     "pep8",
     "pycodestyle"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  }
 }
