@@ -1,0 +1,105 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  checkout_code:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+      - chmod u+x build-package.sh
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      # Save current state for next steps
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - save_cache:
+          key: v1-repo-{{ checksum ".circle-sha" }}
+          paths:
+            - ~/circleci-demo-workflows
+
+  atom_stable:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/node:8
+
+    environment:
+      ATOM_CHANNEL: "stable"
+
+    steps:
+      # Restore state from earlier step
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+
+      - run:
+        name: Atom Test
+        command: ./build-package.sh
+
+  atom_beta:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/node:8
+
+    environment:
+      ATOM_CHANNEL: "beta"
+
+    steps:
+      # Restore state from earlier step
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+
+      - run:
+        name: Atom Test
+        command: ./build-package.sh
+
+  save_cache:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/node:8
+    steps:
+      # Restore state from earlier step
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+      - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+
+workflows:
+  version: 2
+  stable:
+  # stable_and_beta:
+    jobs:
+      - checkout_code
+      - atom_stable:
+        requires:
+          - checkout_code
+      # - atom_beta:
+      #   requires:
+      #     - checkout_code
+      - save_cache:
+        requires:
+          - atom_stable
