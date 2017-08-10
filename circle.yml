@@ -1,0 +1,14 @@
+machine:
+  python:
+    version: 3.6.2
+
+dependencies:
+  override:
+    - curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+    - chmod u+x build-package.sh
+    - pip install pycodestyle
+
+test:
+  override:
+    - pycodestyle --version
+    - ./build-package.sh
