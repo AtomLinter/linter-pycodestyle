@@ -7,7 +7,7 @@ jobs:
   checkout_code:
     working_directory: ~/linter-pycodestyle
     docker:
-      - image: circleci/node:8
+      - image: circleci/python:latest
     steps:
       - checkout
       - curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
@@ -32,7 +32,7 @@ jobs:
   atom_stable:
     working_directory: ~/linter-pycodestyle
     docker:
-      - image: circleci/node:8
+      - image: circleci/python:latest
 
     environment:
       ATOM_CHANNEL: "stable"
@@ -47,13 +47,21 @@ jobs:
             - v1-repo-{{ checksum ".circle-sha" }}
 
       - run:
+        name: Install pycodestyle
+        command: pip install pycodestyle
+
+      - run:
+        name: pycodestyle Version
+        command: pycodestyle --version
+
+      - run:
         name: Atom Test
         command: ./build-package.sh
 
   atom_beta:
     working_directory: ~/linter-pycodestyle
     docker:
-      - image: circleci/node:8
+      - image: circleci/python:latest
 
     environment:
       ATOM_CHANNEL: "beta"
@@ -66,6 +74,14 @@ jobs:
       - restore_cache:
           keys:
             - v1-repo-{{ checksum ".circle-sha" }}
+
+      - run:
+        name: Install pycodestyle
+        command: pip install pycodestyle
+
+      - run:
+        name: pycodestyle Version
+        command: pycodestyle --version
 
       - run:
         name: Atom Test
