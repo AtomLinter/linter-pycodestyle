@@ -1,5 +1,7 @@
 # linter-pycodestyle
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/AtomLinter/linter-pycodestyle.svg)](https://greenkeeper.io/)
+
 This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides
 an interface to [pycodestyle](https://pypi.python.org/pypi/pycodestyle). It will be used
 with Python files.
