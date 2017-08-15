@@ -1,5 +1,26 @@
 # Change Log
 
+## [v2.1.0](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.0) (2017-08-15)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.0.2...v2.1.0)
+
+**Implemented enhancements:**
+
+- $PROJECT variable doesn't work [\#87](https://github.com/AtomLinter/linter-pycodestyle/issues/87)
+- Add support for custom '--config' path [\#59](https://github.com/AtomLinter/linter-pycodestyle/issues/59)
+- Implement specs [\#42](https://github.com/AtomLinter/linter-pycodestyle/issues/42)
+- Switch to CircleCI 2.0 [\#127](https://github.com/AtomLinter/linter-pycodestyle/pull/127) ([Arcanemagus](https://github.com/Arcanemagus))
+- Add Greenkeeper badge 🌴 [\#126](https://github.com/AtomLinter/linter-pycodestyle/pull/126) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Switch to CircleCI 1.0 [\#125](https://github.com/AtomLinter/linter-pycodestyle/pull/125) ([Arcanemagus](https://github.com/Arcanemagus))
+- Add CI configuration [\#124](https://github.com/AtomLinter/linter-pycodestyle/pull/124) ([Arcanemagus](https://github.com/Arcanemagus))
+- Rewrite in JS and update [\#122](https://github.com/AtomLinter/linter-pycodestyle/pull/122) ([Arcanemagus](https://github.com/Arcanemagus))
+- Add specs [\#121](https://github.com/AtomLinter/linter-pycodestyle/pull/121) ([lucasdf](https://github.com/lucasdf))
+
+**Fixed bugs:**
+
+- pep8 config files are not being used [\#69](https://github.com/AtomLinter/linter-pycodestyle/issues/69)
+- Rewrite in JS and update [\#122](https://github.com/AtomLinter/linter-pycodestyle/pull/122) ([Arcanemagus](https://github.com/Arcanemagus))
+- Fix typo in package description [\#117](https://github.com/AtomLinter/linter-pycodestyle/pull/117) ([ghisvail](https://github.com/ghisvail))
+
 ## [v2.0.2](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.0.2) (2017-03-21)
 [Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.0.1...v2.0.2)
 
