@@ -1,0 +1,77 @@
+version: 2
+jobs:
+  checkout_code:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - checkout
+      - run:
+          name: Download Atom test script
+          command: curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+      - run:
+          name: Make Atom script executable
+          command: chmod u+x build-package.sh
+      # Restore node_modules from the last build
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      # Save project state for next steps
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - save_cache:
+          key: v1-repo-{{ checksum ".circle-sha" }}
+          paths:
+            - ~/linter-pycodestyle
+
+  stable:
+    working_directory: ~/linter-pycodestyle
+    docker:
+      - image: circleci/python:latest
+        environment:
+          CIRCLE_BUILD_IMAGE: ubuntu
+          ATOM_CHANNEL: stable
+          DISPLAY: :99
+    steps:
+      # Restore project state
+      - run:
+          name: Save build SHA1 to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+      - run:
+          name: Update APT
+          command: sudo apt-get update
+      # Install some pre-requisite packages and missing dependencies from the atom package
+      - run:
+          name: Atom Prerequisites
+          command: sudo apt-get --assume-yes --quiet --no-install-suggests --no-install-recommends install sudo xvfb libxss1 libasound2
+      # Fire up a VFB to run Atom in
+      - run:
+          name: Create VFB for Atom to run in
+          command: sudo /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
+      - run:
+          name: Install pycodestyle
+          command: sudo pip install pycodestyle
+      - run:
+          name: pycodestyle Version
+          command: pycodestyle --version
+      - run:
+          name: Atom test
+          command: ./build-package.sh
+      # Cache node_modules
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+workflows:
+  version: 2
+  stable:
+    jobs:
+      - checkout_code
+      - stable:
+          requires:
+            - checkout_code
