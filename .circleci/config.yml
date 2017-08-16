@@ -1,9 +1,18 @@
 version: 2
+
+defaults: &defaults
+ working_directory: /tmp/project
+ docker:
+   - image: circleci/python:latest
+     environment:
+       CIRCLE_BUILD_IMAGE: ubuntu
+       ATOM_CHANNEL: stable
+       APM_TEST_PACKAGES: language-livescript
+       DISPLAY: :99
+
 jobs:
   checkout_code:
-    working_directory: ~/linter-pycodestyle
-    docker:
-      - image: circleci/python:latest
+    <<: *defaults
     steps:
       - checkout
       - run:
@@ -15,32 +24,22 @@ jobs:
       # Restore node_modules from the last build
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+          # Get latest cache for this package.json
+          - v2-dependencies-{{ checksum "package.json" }}
+          # Fallback to the last available cache
+          - v2-dependencies
       # Save project state for next steps
-      - run:
-          name: Save build SHA1 to a file
-          command: echo $CIRCLE_SHA1 > .circle-sha
-      - save_cache:
-          key: v1-repo-{{ checksum ".circle-sha" }}
+      - persist_to_workspace:
+          root: /tmp
           paths:
-            - ~/linter-pycodestyle
+            - project
 
   stable:
-    working_directory: ~/linter-pycodestyle
-    docker:
-      - image: circleci/python:latest
-        environment:
-          CIRCLE_BUILD_IMAGE: ubuntu
-          ATOM_CHANNEL: stable
-          DISPLAY: :99
+    <<: *defaults
     steps:
       # Restore project state
-      - run:
-          name: Save build SHA1 to a file
-          command: echo $CIRCLE_SHA1 > .circle-sha
-      - restore_cache:
-          keys:
-            - v1-repo-{{ checksum ".circle-sha" }}
+      - attach_workspace:
+          at: /tmp
       - run:
           name: Update APT
           command: sudo apt-get update
@@ -51,7 +50,8 @@ jobs:
       # Fire up a VFB to run Atom in
       - run:
           name: Create VFB for Atom to run in
-          command: sudo /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
+          command: /usr/bin/Xvfb $DISPLAY -ac -screen 0 1280x1024x16
+          background: true
       - run:
           name: Install pycodestyle
           command: sudo pip install pycodestyle
@@ -65,13 +65,46 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
+
+  beta:
+    <<: *defaults
+    environment:
+      ATOM_CHANNEL: beta
+    steps:
+      # Restore project state
+      - attach_workspace:
+          at: /tmp
+      - run:
+          name: Update APT
+          command: sudo apt-get update
+      # Install some pre-requisite packages and missing dependencies from the atom package
+      - run:
+          name: Atom Prerequisites
+          command: sudo apt-get --assume-yes --quiet --no-install-suggests --no-install-recommends install sudo xvfb libxss1 libasound2
+      # Fire up a VFB to run Atom in
+      - run:
+          name: Create VFB for Atom to run in
+          command: /usr/bin/Xvfb $DISPLAY -ac -screen 0 1280x1024x16
+          background: true
+      - run:
+          name: Install pycodestyle
+          command: sudo pip install pycodestyle
+      - run:
+          name: pycodestyle Version
+          command: pycodestyle --version
+      - run:
+          name: Atom test
+          command: ./build-package.sh
 
 workflows:
   version: 2
-  stable:
+  test_package:
     jobs:
       - checkout_code
       - stable:
+          requires:
+            - checkout_code
+      - beta:
           requires:
             - checkout_code
