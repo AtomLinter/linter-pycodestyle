@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.1.1](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.1) (2017-08-17)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.1.0...v2.1.1)
+
+**Implemented enhancements:**
+
+- Cleanup config and enable beta builds [\#128](https://github.com/AtomLinter/linter-pycodestyle/pull/128) ([Arcanemagus](https://github.com/Arcanemagus))
+
+**Fixed bugs:**
+
+- Ignore editors with no path [\#130](https://github.com/AtomLinter/linter-pycodestyle/pull/130) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v2.1.0](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.0) (2017-08-15)
 [Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.0.2...v2.1.0)
 
