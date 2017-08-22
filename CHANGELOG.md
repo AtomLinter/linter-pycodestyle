@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.1.2](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.2) (2017-08-22)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.1.1...v2.1.2)
+
+**Fixed bugs:**
+
+- Require path before usage [\#135](https://github.com/AtomLinter/linter-pycodestyle/pull/135) ([neok-m4700](https://github.com/neok-m4700))
+
 ## [v2.1.1](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.1) (2017-08-17)
 [Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.1.0...v2.1.1)
 
