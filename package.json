@@ -1,7 +1,7 @@
 {
   "name": "linter-pycodestyle",
   "main": "./lib/index",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Linter plugin for pycodestyle",
   "repository": "https://github.com/AtomLinter/linter-pycodestyle",
   "license": "MIT",

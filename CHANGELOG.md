@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.1.3](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.3) (2017-08-24)
+[Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.1.2...v2.1.3)
+
+**Fixed bugs:**
+
+- Robustify the check for if ignoreCodes are set or not. [\#132](https://github.com/AtomLinter/linter-pycodestyle/pull/132) ([Rotonen](https://github.com/Rotonen))
+
 ## [v2.1.2](https://github.com/AtomLinter/linter-pycodestyle/tree/v2.1.2) (2017-08-22)
 [Full Changelog](https://github.com/AtomLinter/linter-pycodestyle/compare/v2.1.1...v2.1.2)
 
