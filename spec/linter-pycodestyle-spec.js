@@ -9,7 +9,7 @@ const goodPath = join(fixturePath, 'good.py');
 const badPath = join(fixturePath, 'bad.py');
 
 describe('The pycodestyle provider for Linter', () => {
-  const lint = require('../lib/').provideLinter().lint;
+  const { lint } = require('../lib/').provideLinter();
 
   beforeEach(async () => {
     // Info about this beforeEach() implementation:
@@ -23,12 +23,10 @@ describe('The pycodestyle provider for Linter', () => {
   });
 
   it('should be in the packages list', () =>
-    expect(atom.packages.isPackageLoaded('linter-pycodestyle')).toBe(true),
-  );
+    expect(atom.packages.isPackageLoaded('linter-pycodestyle')).toBe(true));
 
   it('should be an active package', () =>
-    expect(atom.packages.isPackageActive('linter-pycodestyle')).toBe(true),
-  );
+    expect(atom.packages.isPackageActive('linter-pycodestyle')).toBe(true));
 
   describe('checks bad.py and', () => {
     let editor = null;
@@ -107,7 +105,8 @@ describe('The pycodestyle provider for Linter', () => {
     });
 
     it('normalizes executable path', async () => {
-      atom.config.set('linter-pycodestyle.executablePath',
+      atom.config.set(
+        'linter-pycodestyle.executablePath',
         join(fixturePath, '..', 'fixtures', 'pycodestyle'),
       );
       await lint(editor);
@@ -117,7 +116,8 @@ describe('The pycodestyle provider for Linter', () => {
     it('finds backup executable', async () => {
       const pycodestyleNotFound = join('$PROJECT', 'pycodestyle_notfound');
       const pycodestyleBackup = join(fixturePath, 'pycodestyle_backup');
-      atom.config.set('linter-pycodestyle.executablePath',
+      atom.config.set(
+        'linter-pycodestyle.executablePath',
         `${pycodestyleNotFound};${pycodestyleBackup}`,
       );
       await lint(editor);
