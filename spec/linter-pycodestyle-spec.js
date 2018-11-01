@@ -1,8 +1,10 @@
 'use babel';
 
 import { join } from 'path';
-// eslint-disable-next-line no-unused-vars
-import { it, fit, wait, beforeEach, afterEach } from 'jasmine-fix';
+import {
+  // eslint-disable-next-line no-unused-vars
+  it, fit, wait, beforeEach, afterEach,
+} from 'jasmine-fix';
 
 const fixturePath = join(__dirname, 'fixtures');
 const goodPath = join(fixturePath, 'good.py');
@@ -22,11 +24,13 @@ describe('The pycodestyle provider for Linter', () => {
     await activationPromise;
   });
 
-  it('should be in the packages list', () =>
-    expect(atom.packages.isPackageLoaded('linter-pycodestyle')).toBe(true));
+  it('should be in the packages list', () => {
+    expect(atom.packages.isPackageLoaded('linter-pycodestyle')).toBe(true);
+  });
 
-  it('should be an active package', () =>
-    expect(atom.packages.isPackageActive('linter-pycodestyle')).toBe(true));
+  it('should be an active package', () => {
+    expect(atom.packages.isPackageActive('linter-pycodestyle')).toBe(true);
+  });
 
   describe('checks bad.py and', () => {
     let editor = null;
